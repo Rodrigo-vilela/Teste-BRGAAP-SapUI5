@@ -6,14 +6,18 @@ sap.ui.define([
 	"sap/ui/model/FilterOperator"
 ], function (Controller, JSONModel, formatter, Filter, FilterOperator) {
 	"use strict";
+
 	return Controller.extend("sap.ui.demo.walkthrough.controller.InvoiceList", {
-		formatter: formatter, 
-		onInit : function () {
+
+		formatter: formatter,
+
+		onInit: function () {
 			var oViewModel = new JSONModel({
 				currency: "EUR"
 			});
 			this.getView().setModel(oViewModel, "view");
 		},
+
 		onFilterInvoices : function (oEvent) {
 
 			// build filter array
@@ -27,6 +31,11 @@ sap.ui.define([
 			var oList = this.byId("invoiceList");
 			var oBinding = oList.getBinding("items");
 			oBinding.filter(aFilter);
+		},
+            onPress: function (oEvent) {
+			var oRouter = this.getOwnerComponent().getRouter();
+			oRouter.navTo("detail");
 		}
 	});
+
 });

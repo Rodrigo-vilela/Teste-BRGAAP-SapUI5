@@ -3,7 +3,11 @@
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
 	displayBlock="true">
-	<Shell>
+    <Shell>
+	<App class="myAppDemoWT" id="app"/>
+    </Shell>
+	
+    <!--<Shell>
 		<App class="myAppDemoWT">
 			<pages>
 				<Page title="{i18n>homePageTitle}">
@@ -20,4 +24,5 @@
 			</pages>
 		</App>
 	</Shell>
+    -->
 </mvc:View>
