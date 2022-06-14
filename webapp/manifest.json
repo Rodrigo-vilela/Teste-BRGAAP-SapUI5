@@ -48,10 +48,10 @@
 					"fallbackLocale": ""
 				}
 			},
-			"invoice": {
-				"type": "sap.ui.model.json.JSONModel",
-				"uri": "Invoices.json"
-			}
+            "invoice": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "https://jsonplaceholder.typicode.com/todos"				
+            }			
 		},
       "routing": {
         "config": {

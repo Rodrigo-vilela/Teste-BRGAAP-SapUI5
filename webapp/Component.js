@@ -21,8 +21,8 @@ sap.ui.define([
           this.setModel(oModel);
  
           // set i18n model
-         var oModel = new JSONModel(oData);
-         this.setModel(oModel);
+          var oModel = new JSONModel(oData);
+          this.setModel(oModel);
 
          // create the views based on the url/hash
 			this.getRouter().initialize();

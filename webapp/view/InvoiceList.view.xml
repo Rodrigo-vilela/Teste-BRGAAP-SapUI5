@@ -1,76 +1,75 @@
 <mvc:View
-		controllerName="sap.ui.demo.walkthrough.controller.InvoiceList"
-		xmlns="sap.m"
-		xmlns:mvc="sap.ui.core.mvc">
-	<Table
-		id="invoiceList"
-		class="sapUiResponsiveMargin"
-		width="auto"
-		items="{
-			path : 'invoice>/Invoices',
-			sorter : {
-				path : 'ShipperName',
+    controllerName="sap.ui.demo.walkthrough.controller.InvoiceList"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Table
+        id="invoiceList"
+        class="sapUiResponsiveMargin"
+        width="auto"
+		alternateRowColors="true"
+		growing="true"
+		growingThreshold="200"
+        items="{
+            path : 'invoice>/',
+            sorter : {
+                path : 'userId',
 				group : true
-			}
-		}">
-		<headerToolbar>
-			<Toolbar>
-				<Title text="{i18n>invoiceListTitle}"/>
-				<ToolbarSpacer/>
-				<SearchField width="50%" search=".onFilterInvoices"/>
-			</Toolbar>
-		</headerToolbar>
-		<columns>
+            }
+        }" >
+        <headerToolbar>
+            <Toolbar>
+                <Title textAlign="Center" width="20%" text="{i18n>invoiceListTitle}"/>
+                <SearchField width="80%" search=".onFilterInvoices"/>
+            </Toolbar>
+        </headerToolbar>
+        <columns>
 			<Column
-				hAlign="End"
+				hAlign="Center"
 				minScreenWidth="Small"
 				demandPopin="true"
-				width="7em">
-				<Text text="{i18n>columnQuantity}"/>
-			</Column>
-			<Column>
-				<Text text="{i18n>columnName}"/>
+				width="20%">				
+				<Text text="{i18n>columnId}"/>
 			</Column>
 			<Column
+				hAlign="Center"
 				minScreenWidth="Small"
-				demandPopin="true">
-				<Text text="{i18n>columnStatus}"/>
+				demandPopin="true"
+				width="40%">
+				<Text text="{i18n>columnTitle}"/>
 			</Column>
 			<Column
-				minScreenWidth="Tablet"
-				demandPopin="false">
-				<Text text="{i18n>columnSupplier}"/>
+				hAlign="Center"
+				minScreenWidth="Small"
+				demandPopin="true"
+				width="20%">
+				<Text text="{i18n>columnCompleted}"/>
 			</Column>
 			<Column
-				hAlign="End">
-				<Text text="{i18n>columnPrice}"/>
+				hAlign="Center"
+				minScreenWidth="Small"
+				demandPopin="true"
+				width="20%">			
+				<Text text="{i18n>Detalhes}"/>
 			</Column>
 		</columns>
-		<items>
-			<ColumnListItem
+        <items>
+            <ColumnListItem
 				type="Navigation"
 				press=".onPress">
-				<cells>
-					<ObjectNumber number="{invoice>Quantity}" emphasized="false"/>
-					<ObjectIdentifier title="{invoice>ProductName}"/>
-					<Text text="{
-						path: 'invoice>Status',
-						formatter: '.formatter.statusText'
-					}"/>
-					<Text text="{invoice>ShipperName}"/>
-					<ObjectNumber
-						number="{
-							parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
-							type: 'sap.ui.model.type.Currency',
-							formatOptions: {
-								showMeasure: false
-							}
-						}"
-						unit="{view>/currency}"
-						state="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }"/>
+				<cells>				
+					<ObjectNumber number="{invoice>id}" emphasized="false"/>
+					<ObjectIdentifier title="{invoice>title}"/>
+					<CheckBox
+						displayOnly="true"
+						selected="{invoice>completed}"/>
+					<Button
+						icon ="sap-icon://detail-view"
+						press=".onPress"
+						width="100%"
+						height = "100%"	/>
+
 				</cells>
 			</ColumnListItem>
-		</items>
-	</Table>
-
+        </items>
+    </Table>
 </mvc:View>

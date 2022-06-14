@@ -1,7 +1,8 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/core/routing/History",
-    "sap/m/MessageToast"
+    "sap/m/MessageToast",
+	"sap/ui/model/json/JSONModel"
 ], function (Controller, History) {
 	"use strict";
 

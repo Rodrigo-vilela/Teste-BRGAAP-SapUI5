@@ -1,6 +1,6 @@
 specVersion: '2.6'
 metadata:
-  name: teste-brgaap-sapui5
+  name: rodrigo-teste-brgaap
 type: application
 framework:
   name: SAPUI5
